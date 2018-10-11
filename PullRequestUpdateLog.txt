@@ -1,3 +1,14 @@
+Third Pull Request Notes
+10/10/2018
+Took this week to start getting using to C# again. First created a new unit test project in visual studio.
+The first group of unit tests will deal with creating and configuring the vending machine.
+The testing class has been named "BadSetup". Began with writing two simple unit tests regarding the vending machine.
+The first unit test checks if an invalid drink cost is caught by the exception handler.
+The second unit test checks if the number of drink names and costs are equal to the number of selection buttons/soda can racks.
+
+
+-----
+
 Second Pull Request Notes
 10/3/2018
 
