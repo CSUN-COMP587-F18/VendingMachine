@@ -1,9 +1,0 @@
-Second Pull Request Notes
-10/3/2018
-
-Since I know how to use C# and this is a past assignment, going over this codebase isn't something new to me. 
-However, there are many classes and it is difficult to understand every component of the entire system.
-The assignment was given to us expecting us to be able to program the vending machine logic without understanding
-the whole system. I will begin looking over the system and see if any changes are needed to
-improve testability. I will also start writing unit tests in order to check if the vending machine logic is working
-and if the vending machine contents are correct, as well as if appropriate exceptions are thrown.
