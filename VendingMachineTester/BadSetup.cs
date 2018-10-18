@@ -11,7 +11,7 @@ namespace VendingMachineTester
     public class BadSetup
     {
         /// <summary>
-        /// UT01
+        /// UT01-BS
         /// Setting a cost of a drink to 0 should fail
         /// </summary>
         [TestMethod]
@@ -26,7 +26,7 @@ namespace VendingMachineTester
         }
 
         /// <summary>
-        /// UT02
+        /// UT02-BS
         /// # of selection buttons/pop can racks NOT EQUAL TO # of drinks configured
         /// </summary>
         [TestMethod]
