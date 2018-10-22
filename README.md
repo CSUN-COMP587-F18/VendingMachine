@@ -1,4 +1,7 @@
 "# VendingMachine" 
+"Michael Shi Assignment 1 COMP587"
 "The system (written in C#) was given as an assignment for a software engineering course." 
 "The system simulates the logic and capabilities of a vending machine through the use of multiple classes and event handling."
 "Link to SUT Source Code: https://hcitang.github.io/seng301/#!a3.md"
+"IMPORTANT NOTE: In the system, the word "pop" is used often as in Canada the word "soda" isn't used as much. "Pop" is referring to soda or a drink in general."
+"Throughout the documentation pop and soda will be used interchangeably and should be considered the same."
