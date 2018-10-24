@@ -1,3 +1,13 @@
+Fifth Pull Request Notes
+10/23/2018
+
+I created another test class called "GoodPath" focused more on correct values for the vending machine contents and delivery.
+I initialized a vending machine with some values that will be used for the test methods.
+The first test to start off was to check after a selection if the remaining contents were correct, and if the delivered contents were correct.
+There is no change delivered in this test.
+As for the coming pull requests, I will add more to previous test classes, this class and look to add more test classes.
+
+
 Fourth Pull Request Notes
 10/17/2018
 

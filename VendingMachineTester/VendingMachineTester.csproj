@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BadSetup.cs" />
     <Compile Include="GoodCoin.cs" />
+    <Compile Include="GoodPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VMUtility.cs" />
   </ItemGroup>
