@@ -45,5 +45,44 @@ namespace VendingMachineTester
             Assert.AreEqual(VMUtility.CentsInCoinRacks(contents), 315);
             Assert.IsTrue(VMUtility.PopsInPopRacks(contents).SequenceEqual(new List<PopCan>() { new PopCan("water"), new PopCan("juice") }));
         }
+
+        /// <summary>
+        /// UT02-GP
+        /// Testing vending machine delivery and content values, with change
+        /// </summary>
+        [TestMethod]
+        public void GoodValuesWithChange()
+        {
+            this.vm.CoinSlot.AddCoin(new Coin(100));
+            this.vm.CoinSlot.AddCoin(new Coin(100));
+            this.vm.CoinSlot.AddCoin(new Coin(100));
+            this.vm.SelectionButtons[0].Press();
+
+            var delivery = VMUtility.ExtractDelivery(this.vm);
+            var contents = VMUtility.Unload(this.vm);
+
+            Assert.IsTrue(VMUtility.PopsInDelivery(delivery).SequenceEqual(new List<PopCan>() { new PopCan("coke") }));
+            Assert.AreEqual(VMUtility.CentsInDelivery(delivery), 50);
+            Assert.AreEqual(VMUtility.CentsInCoinRacks(contents), 315);
+            Assert.IsTrue(VMUtility.PopsInPopRacks(contents).SequenceEqual(new List<PopCan>() { new PopCan("water"), new PopCan("juice") }));
+        }
+
+        /// <summary>
+        /// UT03-GP
+        /// Pressing a selection without having sufficient funds
+        /// </summary>
+        [TestMethod]
+        public void PressWithoutFunds()
+        {
+            this.vm.SelectionButtons[0].Press();
+
+            var delivery = VMUtility.ExtractDelivery(this.vm);
+            var contents = VMUtility.Unload(this.vm);
+
+            Assert.AreEqual(delivery.Count, 0);
+            Assert.AreEqual(VMUtility.CentsInCoinRacks(contents), 65);
+            Assert.AreEqual(contents.PaymentCoinsInStorageBin.Count, 0);
+            Assert.IsTrue(VMUtility.PopsInPopRacks(contents).SequenceEqual(new List<PopCan>() { new PopCan("coke"), new PopCan("water"), new PopCan("juice") }));
+        }
     }
 }
