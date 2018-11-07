@@ -1,3 +1,12 @@
+Sixth Pull Request Notes
+10/30/2018
+
+Added two more tests to "GoodPath" class. Checked for correct values for the vending machine contents and delivery.
+First test checks the values with change is delivered.
+Second test checks if the values stay the same when a selection is made and the user does not have sufficient funds.
+
+----
+
 Fifth Pull Request Notes
 10/23/2018
 
@@ -7,6 +16,7 @@ The first test to start off was to check after a selection if the remaining cont
 There is no change delivered in this test.
 As for the coming pull requests, I will add more to previous test classes, this class and look to add more test classes.
 
+----
 
 Fourth Pull Request Notes
 10/17/2018
