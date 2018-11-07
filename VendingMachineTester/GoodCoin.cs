@@ -53,7 +53,28 @@ namespace VendingMachineTester
             var contents = VMUtility.Unload(vm);
             CheckUnload(contents, 330, 0, new string[] { });
         }
-        
+
+        /// <summary>
+        /// UT03-GC
+        /// Checks if vending machine works normally with weird coin denomination inserted
+        /// </summary>
+        [TestMethod]
+        public void GoodWeirdCoin()
+        {
+            var vm = new VendingMachine(new int[] { 5, 10, 25, 100 }, 1, 10, 10, 10);
+            new VendingMachineLogic(vm);
+            vm.Configure(new List<string>() { "Coke" }, new List<int>() { 140 });
+            vm.LoadCoins(new int[] { 1, 6, 1, 1 });
+            vm.LoadPopCans(new int[] { 1 });
+            vm.CoinSlot.AddCoin(new Coin(1));
+            vm.CoinSlot.AddCoin(new Coin(139));
+            vm.SelectionButtons[0].Press();
+            var delivery = VMUtility.ExtractDelivery(vm);
+            CheckDelivery(delivery, 140, new string[] { });
+            var contents = VMUtility.Unload(vm);
+            CheckUnload(contents, 190, 0, new string[] { "Coke" });
+        }
+
         //Check delivery chute contents
         public void CheckDelivery(List<IDeliverable> delivery, int cents, string[] popNames)
         {
