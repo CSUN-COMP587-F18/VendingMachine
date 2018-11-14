@@ -53,5 +53,29 @@ namespace VendingMachineTester
             vm.SelectionButtons[3].Press();
         }
 
+        /// <summary>
+        /// UT04-BS
+        /// Creating vending machine that accepts two of the same denomination
+        /// {1, 1} needs to be unique
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void BadUniqueDenomination()
+        {
+            var vm = new VendingMachine(new int[] { 1, 1 }, 1, 10, 10, 10);
+        }
+
+        /// <summary>
+        /// UT05-BS
+        /// Creating vending machine that accepts 0 as a coin should fail
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void BadCoinType()
+        {
+            var vm = new VendingMachine(new int[] { 0 }, 1, 10, 10, 10);
+        }
+
+
     }
 }
