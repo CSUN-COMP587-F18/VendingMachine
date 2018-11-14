@@ -40,5 +40,18 @@ namespace VendingMachineTester
             vm.Configure(new List<string>() { "Coke", "water" }, new List<int>() { 250, 250 });
         }
 
+        /// <summary>
+        /// UT03-BS
+        /// Pressing a button that does not exist
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void BadButton()
+        {
+            var vm = new VendingMachine(new int[] { 5, 10, 25, 100 }, 3, 10, 10, 10);
+            new VendingMachineLogic(vm);
+            vm.SelectionButtons[3].Press();
+        }
+
     }
 }

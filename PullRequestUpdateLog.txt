@@ -1,3 +1,11 @@
+Seventh Pull Request Notes
+11/6/2018
+
+Added two more tests. One to the BadSetup class which checks if index out of range exception is handled when attempting to press
+button that does not exist. One more test for GoodCoin which checks if the vending machine still works with unusual coin denominations.
+
+----
+
 Sixth Pull Request Notes
 10/30/2018
 
