@@ -1,3 +1,12 @@
+Eighth Pull Request Notes
+11/13/2018
+
+Added three more tests, two to BadSetup which checks if common denominations and coin type of 0 is handled.
+Created new class called GoodWeirdOrdering.cs and a test that checks if no values are present without configuration.
+For upcoming pull requests will look more into automated testing.
+
+---
+
 Seventh Pull Request Notes
 11/6/2018
 

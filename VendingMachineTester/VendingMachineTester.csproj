@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BadSetup.cs" />
+    <Compile Include="GoodWeirdOrdering.cs" />
     <Compile Include="GoodCoin.cs" />
     <Compile Include="GoodPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
