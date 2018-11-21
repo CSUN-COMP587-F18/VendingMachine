@@ -1,3 +1,10 @@
+Nineth Pull Request Notes
+11/20/2018
+
+Added two unit tests to GoodWeirdOrdering.cs, one with mixed coins/denominations and the other test extracting the delivery before purchase.
+
+--
+
 Eighth Pull Request Notes
 11/13/2018
 
