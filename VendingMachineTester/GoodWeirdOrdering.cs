@@ -88,5 +88,57 @@ namespace VendingMachineTester
             Assert.AreEqual(0, unload.PaymentCoinsInStorageBin.Sum(c => c.Value));
         }
 
+        /// <summary>
+        /// UT04-GO
+        /// Changing configuration throughout the tests
+        /// </summary>
+        [TestMethod]
+        public void GoodChangingConfiguration()
+        {
+            var vm = new VendingMachine(new int[] { 5, 10, 25, 100 }, 3, 10, 10, 10);
+            new VendingMachineLogic(vm);
+            vm.Configure(new List<string>() { "A", "B", "C" }, new List<int>() { 5, 10, 25 });
+            vm.LoadCoins(new int[] { 1, 1, 2, 0 });
+            vm.LoadPopCans(new int[] { 1, 1, 1 });
+            vm.Configure(new List<string>() { "Coke", "Water", "Juice" }, new List<int>() { 250, 250, 205 });
+            vm.SelectionButtons[0].Press();
+            var delivery = VMUtility.ExtractDelivery(vm);
+            Assert.AreEqual(0, delivery.Count);
+
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.SelectionButtons[0].Press();
+
+            // Check values of original configuration
+
+            delivery = VMUtility.ExtractDelivery(vm);
+            Assert.AreEqual(50, VMUtility.CentsInDelivery(delivery));
+            Assert.IsTrue(VMUtility.Pops(new string[] { "A" }).SequenceEqual(VMUtility.PopsInDelivery(delivery)));
+
+            var unload = VMUtility.Unload(vm);
+            Assert.IsTrue((VMUtility.Pops(new string[] { "B", "C" })).SequenceEqual(VMUtility.PopsInPopRacks(unload)));
+            Assert.AreEqual(315, VMUtility.CentsInCoinRacks(unload));
+            Assert.AreEqual(0, unload.PaymentCoinsInStorageBin.Sum(c => c.Value));
+
+            // Check results of new configuration change
+
+            vm.LoadCoins(new int[] { 1, 1, 2, 0 });
+            vm.LoadPopCans(new int[] { 1, 1, 1 });
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.CoinSlot.AddCoin(new Coin(100));
+            vm.SelectionButtons[0].Press();
+            delivery = VMUtility.ExtractDelivery(vm);
+            Assert.AreEqual(50, VMUtility.CentsInDelivery(delivery));
+            Assert.IsTrue(VMUtility.Pops(new string[] { "Coke" }).SequenceEqual(VMUtility.PopsInDelivery(delivery)));
+
+            unload = VMUtility.Unload(vm);
+            Assert.IsTrue((VMUtility.Pops(new string[] { "Water", "Juice" })).SequenceEqual(VMUtility.PopsInPopRacks(unload)));
+            Assert.AreEqual(315, VMUtility.CentsInCoinRacks(unload));
+            Assert.AreEqual(0, unload.PaymentCoinsInStorageBin.Sum(c => c.Value));
+
+        }
+
     }
 }

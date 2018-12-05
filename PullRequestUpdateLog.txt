@@ -1,9 +1,16 @@
+Tenth Pull Request Notes
+11/27/2018
+
+Added unit test that checks values of vending machine throughout the test while changing its configuration.
+
+---
+
 Nineth Pull Request Notes
 11/20/2018
 
 Added two unit tests to GoodWeirdOrdering.cs, one with mixed coins/denominations and the other test extracting the delivery before purchase.
 
---
+---
 
 Eighth Pull Request Notes
 11/13/2018
