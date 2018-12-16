@@ -1,3 +1,10 @@
+Eleventh Pull Request Notes
+12/4/2018
+
+Added (attempted) automated testing for exact change calculation.
+
+---
+
 Tenth Pull Request Notes
 11/27/2018
 
